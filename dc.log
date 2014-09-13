@@ -1,0 +1,47 @@
+2012-06-22 17:20:37,412 ERROR [AppLogging] Unexpected exception while updating overall availability Montly
+java.lang.ExceptionInInitializerError
+	at com.nokia.noaavailability.util.OverallAvailabilityUtil.<clinit>(OverallAvailabilityUtil.java:36)
+	at com.nokia.noaavailability.web.AvailabilityServletMonthly.init(AvailabilityServletMonthly.java:34)
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1266)
+	at org.apache.catalina.core.StandardWrapper.loadServlet(StandardWrapper.java:1185)
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:1080)
+	at org.apache.catalina.core.StandardContext.loadOnStartup(StandardContext.java:5026)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5313)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1595)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1585)
+	at java.util.concurrent.FutureTask$Sync.innerRun(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.util.MissingResourceException: Can't find bundle for base name dataos, locale en_US
+	at java.util.ResourceBundle.throwMissingResourceException(Unknown Source)
+	at java.util.ResourceBundle.getBundleImpl(Unknown Source)
+	at java.util.ResourceBundle.getBundle(Unknown Source)
+	at com.nokia.noaavailability.util.StringUtils.getPropertyValue(StringUtils.java:31)
+	at com.nokia.noaavailability.dataos.DataOSImpl.<clinit>(DataOSImpl.java:61)
+	... 15 more
+2012-06-22 17:20:37,412 ERROR [AppLogging] Unexpected exception while syncing index and cache
+java.lang.NoClassDefFoundError: Could not initialize class com.nokia.noaavailability.dataos.DataOSImpl
+	at com.nokia.noaavailability.scheduler.DataSyncExecutor.initExec(DataSyncExecutor.java:158)
+	at com.nokia.noaavailability.scheduler.DataSyncExecutor.<init>(DataSyncExecutor.java:91)
+	at com.nokia.noaavailability.scheduler.jobs.StartUpSyncJob.execute(StartUpSyncJob.java:36)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:206)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:548)
+2012-06-22 17:20:37,419 ERROR [AppLogging] Unexpected exception while updating overall availability Map
+java.lang.NoClassDefFoundError: Could not initialize class com.nokia.noaavailability.util.OverallAvailabilityUtil
+	at com.nokia.noaavailability.web.AvailabilityServlet.init(AvailabilityServlet.java:50)
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1266)
+	at org.apache.catalina.core.StandardWrapper.loadServlet(StandardWrapper.java:1185)
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:1080)
+	at org.apache.catalina.core.StandardContext.loadOnStartup(StandardContext.java:5026)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5313)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1595)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1585)
+	at java.util.concurrent.FutureTask$Sync.innerRun(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
